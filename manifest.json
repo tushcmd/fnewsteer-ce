@@ -1,0 +1,22 @@
+{
+    "manifest_version": 3,
+    "name": "FNEWSTEER",
+    "short_name": "FNEWSTEER",
+    "version": "1.0.0",
+    "description": "Loss-prevention news awareness for price action traders. Know when not to trade.",
+    "permissions": [
+        "storage",
+        "notifications",
+        "alarms",
+        "tabs"
+    ],
+    "host_permissions": [
+        "https://www.tradingview.com/*",
+        "http://localhost/*",
+        "https://*/*"
+    ],
+    "background": {
+        "service_worker": "background.js",
+        "type": "module"
+    }
+}
