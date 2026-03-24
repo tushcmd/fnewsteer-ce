@@ -1,0 +1,152 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>FNEWSTEER — Settings</title>
+    <link rel="stylesheet" href="settings.css" />
+  </head>
+  <body>
+    <div class="container">
+      <header>
+        <div class="logo">
+          <span class="logo-icon">◎</span>
+          <div>
+            <div class="logo-name">FN<span class="accent">EWS</span>TEER</div>
+            <div class="logo-sub">SETTINGS</div>
+          </div>
+        </div>
+      </header>
+
+      <form id="settings-form">
+        <!-- API Configuration -->
+        <section class="card">
+          <div class="card-title">API CONFIGURATION</div>
+
+          <div class="field">
+            <label for="api-url">API URL</label>
+            <input
+              id="api-url"
+              type="text"
+              placeholder="http://localhost:8000"
+              autocomplete="off"
+              spellcheck="false"
+            />
+            <div class="hint">Running FNEWSTEER FastAPI backend URL.</div>
+            <!-- <div class="hint">Your running FNEWSTEER FastAPI backend URL.</div> -->
+          </div>
+
+          <div class="field">
+            <label for="api-key">API Key</label>
+            <div class="input-row">
+              <input
+                id="api-key"
+                type="password"
+                placeholder="your-secret-api-key"
+                autocomplete="off"
+              />
+              <button
+                type="button"
+                id="toggle-key"
+                class="icon-btn"
+                title="Show/hide key"
+              >
+                👁
+              </button>
+            </div>
+            <div class="hint">Please enter a valid FNEWSTEER_API_KEY.</div>
+            <!-- <div class="hint">Matches FNEWSTEER_API_KEY in your FastAPI .env file.</div> -->
+          </div>
+
+          <button type="button" id="test-btn" class="secondary-btn">
+            TEST CONNECTION
+          </button>
+          <div id="test-result" class="test-result" style="display: none"></div>
+        </section>
+
+        <!-- Signal Configuration -->
+        <section class="card">
+          <div class="card-title">SIGNAL CONFIGURATION</div>
+
+          <div class="field">
+            <label for="window-minutes"
+              >Blackout Window Override (minutes)</label
+            >
+            <input
+              id="window-minutes"
+              type="number"
+              min="1"
+              max="1440"
+              placeholder="Leave blank for smart defaults"
+            />
+            <div class="hint">
+              Smart defaults: ±60 min for FOMC/NFP/CPI/GDP, ±30 min for all
+              other High impact. Override here to apply a uniform window to all
+              events.
+            </div>
+          </div>
+
+          <div class="field">
+            <label class="toggle-label">
+              <input id="include-medium" type="checkbox" />
+              <span class="toggle-text">Include Medium impact events</span>
+            </label>
+            <div class="hint">
+              When enabled, Medium impact events also trigger BLOCKED status.
+            </div>
+          </div>
+        </section>
+
+        <!-- Notification Configuration -->
+        <section class="card">
+          <div class="card-title">NOTIFICATIONS</div>
+
+          <div class="field">
+            <label for="notify-minutes">Warn before blackout (minutes)</label>
+            <input
+              id="notify-minutes"
+              type="number"
+              min="1"
+              max="60"
+              placeholder="5"
+            />
+            <div class="hint">
+              Desktop notification fires this many minutes before a blackout
+              window opens. Set to 0 to disable notifications.
+            </div>
+          </div>
+
+          <button type="button" id="test-notif-btn" class="secondary-btn">
+            TEST NOTIFICATION
+          </button>
+        </section>
+
+        <!-- Save -->
+        <div class="actions">
+          <button type="submit" class="save-btn">SAVE SETTINGS</button>
+          <div id="save-status" class="save-status" style="display: none">
+            ✓ SAVED
+          </div>
+        </div>
+      </form>
+
+      <footer>
+        <span>FNEWSTEER v1.0</span>
+        <span>·</span>
+        <span>Data: ForexFactory</span>
+        <span>·</span>
+        <a
+          href="https://github.com/tushcmd/fnewsteer-ce#readme"
+          target="_blank"
+          class="footer-link"
+          >Docs</a
+        >
+        <span>·</span>
+        <a href="https://x.com/0xtush" target="_blank" class="footer-link">𝕏</a>
+        <span>·</span>
+        <span> © 2026 FNS</span>
+      </footer>
+    </div>
+
+    <script src="settings.js"></script>
+  </body>
+</html>
