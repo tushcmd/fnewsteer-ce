@@ -115,7 +115,7 @@ icons/
 
 ## Releases
 
-See [GitHub Releases](../../releases) to download a packaged version.
+See [GitHub Releases](https://github.com/tushcmd/fnewsteer-ce/releases) to download a packaged version.
 
 ### v1.0.0 — Initial Release
 
@@ -128,3 +128,7 @@ See [GitHub Releases](../../releases) to download a packaged version.
 2. Go to `chrome://extensions`
 3. Enable **Developer mode**
 4. Click **Load unpacked** → select the unzipped folder
+
+## Related
+
+- [FNEWSTEER API](https://github.com/tushcmd/fnewsteer)
