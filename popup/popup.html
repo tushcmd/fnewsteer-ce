@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>FNEWSTEER</title>
+  <link rel="stylesheet" href="popup.css" />
+</head>
+<body>
+  <!-- Header -->
+  <header>
+    <div class="logo">
+      <span class="logo-icon">◎</span>
+      <div>
+        <div class="logo-name">FN<span class="accent">EWS</span>TEER</div>
+        <div class="logo-sub">News Loss Prevention</div>
+      </div>
+    </div>
+    <div class="header-actions">
+      <div id="api-status" class="api-dot" title="API status"></div>
+      <button id="refresh-btn" class="icon-btn" title="Refresh now">↺</button>
+      <a href="../settings/settings.html" target="_blank" class="icon-btn" title="Settings">⚙</a>
+    </div>
+  </header>
+
+  <!-- Pair selector -->
+  <section class="section">
+    <div class="section-label">SYMBOL</div>
+    <div class="pair-row">
+      <input
+        id="pair-input"
+        type="text"
+        placeholder="EURUSD"
+        maxlength="10"
+        autocomplete="off"
+        spellcheck="false"
+      />
+      <button id="pair-set-btn" class="set-btn">CHECK</button>
+    </div>
+    <div class="quick-pairs" id="quick-pairs">
+      <button class="qp active" data-pair="EURUSD">EURUSD</button>
+      <button class="qp" data-pair="GBPUSD">GBPUSD</button>
+      <button class="qp" data-pair="USDJPY">USDJPY</button>
+      <button class="qp" data-pair="AUDUSD">AUDUSD</button>
+      <button class="qp" data-pair="USDCAD">USDCAD</button>
+      <button class="qp" data-pair="NZDUSD">NZDUSD</button>
+      <button class="qp" data-pair="USDCHF">USDCHF</button>
+      <button class="qp" data-pair="GBPJPY">GBPJPY</button>
+    </div>
+    <div id="tv-detected" class="tv-tag" style="display:none">
+      📡 Auto-detected from TradingView
+    </div>
+  </section>
+
+  <!-- Safety signal -->
+  <section id="signal-section" class="section signal-box">
+    <div id="signal-icon">◌</div>
+    <div id="signal-text">CHECKING...</div>
+    <div id="signal-sub"></div>
+    <div id="signal-countdown"></div>
+  </section>
+
+  <!-- Blocking event detail -->
+  <section id="blocking-detail" class="section" style="display:none">
+    <div class="section-label">BLOCKING EVENT</div>
+    <div id="blocking-title" class="blocking-title"></div>
+    <div class="meta-row">
+      <div class="meta-item"><span class="meta-label">CCY</span><span id="b-ccy" class="meta-value accent"></span></div>
+      <div class="meta-item"><span class="meta-label">IMPACT</span><span id="b-impact" class="meta-value danger"></span></div>
+      <div class="meta-item"><span class="meta-label">EVENT T</span><span id="b-time" class="meta-value"></span></div>
+      <div class="meta-item"><span class="meta-label">WINDOW</span><span id="b-window" class="meta-value"></span></div>
+    </div>
+  </section>
+
+  <!-- Watchlist -->
+  <section class="section">
+    <div class="section-header">
+      <div class="section-label">WATCHLIST</div>
+      <button id="add-watchlist-btn" class="text-btn">+ ADD</button>
+    </div>
+    <div id="watchlist-add-row" style="display:none" class="watchlist-add">
+      <input id="wl-input" type="text" placeholder="GBPJPY" maxlength="10" />
+      <button id="wl-confirm-btn" class="set-btn">ADD</button>
+    </div>
+    <div id="watchlist-items" class="watchlist-items">
+      <!-- Populated by JS -->
+    </div>
+    <div id="watchlist-empty" class="empty-msg">No pairs in watchlist.</div>
+  </section>
+
+  <!-- Last updated -->
+  <footer>
+    <span id="last-update">—</span>
+    <span class="footer-hint">Refreshes every 30s</span>
+  </footer>
+
+  <script src="popup.js"></script>
+</body>
+</html>
