@@ -1,5 +1,6 @@
 # FNEWSTEER Extension — Chrome Extension
 
+![Version](https://img.shields.io/badge/version-1.0.0-blue)
 News loss-prevention signal directly inside TradingView. Auto-detects the current pair,
 shows a draggable CLEAR/BLOCKED badge on the chart, and fires desktop warnings before blackouts.
 
@@ -111,3 +112,19 @@ icons/
 - State stored in `chrome.storage.session` for fast popup reads
 
 ---
+
+## Releases
+
+See [GitHub Releases](../../releases) to download a packaged version.
+
+### v1.0.0 — Initial Release
+
+- First public release
+- All core features: auto-detect pair, floating badge, watchlist, desktop notifications, settings
+
+### Install (Developer Mode)
+
+1. Download `fnewsteer-v1.0.0.zip` and unzip it
+2. Go to `chrome://extensions`
+3. Enable **Developer mode**
+4. Click **Load unpacked** → select the unzipped folder
