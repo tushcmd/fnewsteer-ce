@@ -16,8 +16,8 @@ const DEFAULT_SETTINGS = {
 // Persisted in chrome.storage.session (cleared on browser restart, fast)
 let state = {
   currentPair: 'EURUSD',
-  checkResult: null, // last /news/check response
-  upcomingEvents: [], // from /news/upcoming for current pair
+  checkResult: null, // last /v1/news/check response
+  upcomingEvents: [], // from /v1/news/upcoming for current pair
   watchlist: [], // array of { pair, checkResult }
   lastFetch: null,
   apiOnline: null,
@@ -48,7 +48,7 @@ async function apiFetch(path, params = {}) {
 }
 
 async function checkPair(pair, settings) {
-  return apiFetch('/news/check', {
+  return apiFetch('/v1/news/check', {
     symbol: pair,
     include_medium: settings.includeMedium || undefined,
     window_minutes: settings.windowMinutes || undefined,
@@ -56,7 +56,7 @@ async function checkPair(pair, settings) {
 }
 
 async function fetchUpcoming(pair, settings) {
-  return apiFetch('/news/upcoming', {
+  return apiFetch('/v1/news/upcoming', {
     currency: pair,
     include_medium: settings.includeMedium || undefined,
     window_minutes: settings.windowMinutes || undefined,
